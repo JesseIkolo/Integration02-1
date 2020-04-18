@@ -28,6 +28,7 @@ li{
     padding: 16px 64px 16px 16px;
     border-radius: 16px;
     outline: none;
+    cursor: pointer;
     border: 1px solid black;
     background-color: #ffff;
 }
