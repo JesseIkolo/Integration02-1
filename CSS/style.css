@@ -4,8 +4,42 @@ body{
     font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
     font-size: 14px;
     line-height: 1.5;
-    color: #24292e;
+    color: #ffff;
+    display: flex;
+    justify-content: space-between;
 }
-p{
-    margin: 24px 0;
+.title{
+    margin-bottom: 16px;
+}
+.caption{
+    margin-bottom: 32px;
+}
+.call_to_action{
+    padding: 16px 16px 64px 16px;
+}
+.slides_preview{
+    margin: 64px 0;
+    display: flex;
+    justify-content: space-between;
+}
+.slides_preview .thumb{
+    border-radius: 100%;
+    width: 148px;
+    height: 148px;
+}
+.slides_preview .background{
+    background-color: gray;
+}
+.slides_preview .show{
+    /*rien pour l'instant*/
+}
+.social_networks{
+    display: flex;
+}
+.social_networks .link{
+    width: 64px;
+    height: 64px;
+    border-radius: 100%;
+    background-color: gray;
+    margin-left: 32px;
 }
