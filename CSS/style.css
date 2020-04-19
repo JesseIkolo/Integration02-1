@@ -9,6 +9,7 @@ body{
     line-height: 1.5;
     margin: 0;
     color: #ffff;
+    height: 100vh;
     display: flex;
     justify-content: space-between;
 }
@@ -21,7 +22,6 @@ ul,li{
 
 .content{
     max-width: 700px;
-    vertical-align : bottom;
 }
 .title{
     margin-bottom: 16px;
@@ -43,7 +43,7 @@ ul,li{
     justify-content: space-between;
 }
 .slides_preview .thumb{
-    width: 148px;
+    min-width: 148px;
     height: 148px;
     margin-right: 32px;
     border-radius: 100%;
