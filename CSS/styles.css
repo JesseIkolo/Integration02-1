@@ -1,86 +1,173 @@
-*,*::before,*::after{
-    box-sizing: border-box;
-}
-body{
-    background : url("../ressources/images/corona.png") center center / cover no-repeat;
-    padding: 64px;
-    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
-    font-size: 14px;
-    line-height: 1.5;
-    margin: 0;
-    color: #ffff;
-    height: 100vh;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
-/*style génériques*/
-ul,li{
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
+*,
+*::before,
+*::after {
+   box-sizing: border-box;
 }
 
-.content{
-    max-width: 100%;
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-start;
-    flex-direction: column;
+body {
+   background-color: #303030;
+   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
+   font-size: 20px;
+   line-height: 1.5;
+   margin: 0;
+   color: #ffff;
+   height: 100vh;
+   display: flex;
+   justify-content: space-between;
 }
-.title{
-    margin-bottom: 16px;
+
+/*style génériques*/
+ul,
+li {
+   list-style-type: none;
+   margin: 0;
+   padding: 0;
 }
-.caption{
-    margin-bottom: 32px;
+
+.content {
+   width: 100%;
+   display: flex;
+   flex-direction: column;
+   justify-content: flex-end;
+   align-items: flex-start;
 }
-.call_to_action{
-    padding: 16px 64px 16px 16px;
-    border-radius: 16px;
-    outline: none;
-    cursor: pointer;
-    border: 1px solid black;
-    background-color: #ffff;
+
+.content ul.sliders {
+   width: 100%;
+   height: 100%;
 }
-.slides_preview{
-    margin: 64px 0;
-    display: flex;
-    justify-content: space-between;
+
+.content .sliders .slide {
+   /* il est mieux d'appliquer le spacing
+    interne a li.slide qu'a ses parent */
+   position: relative;
+   width: 100%;
+   height: 100%;
+   padding: 64px;
+   display: flex;
+   flex-direction: column;
+   justify-content: flex-end;
 }
-.slides_preview .thumb{
-    min-width: 148px;
-    height: 148px;
-    margin-right: 32px;
-    border-radius: 100%;
-    background-color: rgb(255, 255, 255);
-    position: relative;
+
+.content .sliders .slide .background {
+   /* Ici il s'agit du conteneur de l'image d'arriere plan, vu que les textes et autre
+   elements viendrons s'y poser, nous allons le mettre en absolué et basé son niveau 
+   de couche au plus bas c'est a dire 0*/
+   position: absolute;
+   left: 0;
+   top: 0;
+   z-index: 0;
+   width: 100%;
+   height: 100%;
 }
-.thumb:nth-child(1){
-    background: url("../ressources/images/man-hands-people-woman.png") center center / cover no-repeat;
+
+
+.content .sliders .slide .background .image {
+   /* importer l'image ici */
+   position: absolute;
+   top : 0;
+   left: 0;
+   width : 100%;
+   height: 100%;
+   z-index: 1;   
+   background-image: url('../ressources/images/corona.png');
+   background-size: cover;
+
 }
-.thumb .background{
-    background-color: gray;
+
+.content .sliders .slide .background .gradiant {
+   position: absolute;
+   top : 0;
+   left: 0;
+   width : 100%;
+   height: 100%;
+   z-index: 2;
 }
-.thumb .show{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    visibility: hidden;
+
+.content .sliders .slide .title {
+   margin-bottom: 16px;
+   position: relative;
+   line-height: 1.2;
+   font-size: 48px;
+   font-weight : 70000
 }
-.slides_preview .show{
-    /*rien pour l'instant*/
+
+.content .sliders .slide .caption {
+   position: relative;
+   margin-bottom: 32px;
+   width: 60%;
 }
-.social_networks{
-    display: flex;
+
+.content .sliders .slide .call_to_action {
+   position: relative;
+   display: block;
+   float: left;
+   width: fit-content;/* la valeur fit-content permet à la boite d'occuper une taille relative à son contenu */
+   padding: 16px 64px 16px 16px;
+   border-radius: 16px;
+   outline: none;
+   cursor: pointer;
+   border: 1px solid black;
+   background-color: #ffff;
+   font-size: 20px;
+   /* Attention Attention, nous ajustons ceci pour ne pas avoir un defaut 
+   de superposition entre le boutton .call_to_action et les .slides_preview*/
+   margin-bottom: calc(148px + 64px + 64px);
 }
-.social_networks .link{
-    width: 64px;
-    height: 64px;
-    border-radius: 100%;
-    background-color: gray;
-    margin-left: 32px;
-    padding: 0;
+
+.slides_preview {
+   position: absolute;
+   margin: 64px 0;
+   left: 64px;
+   bottom: 64px;
+   display: flex;
+   justify-content: space-between;
 }
-.copyright{
-    display: none;
+
+.slides_preview .thumb {
+   position: relative;
+   min-width: 148px;
+   height: 148px;
+   margin-right: 32px;
+   border-radius: 100%;
+   background-color: rgb(255, 255, 255);
+   /* la proprieté overflow, quand il prend la valeur hidden empêche à une boite de montrer 
+   les elements en dépassement */
+   overflow: hidden;
+}
+
+.slides_preview .thumb .background {
+   background-color: gray;
+}
+
+.slides_preview .thumb .show {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   visibility: hidden;
+}
+
+.slides_preview .show {
+   /*rien pour l'instant*/
+}
+
+.social_networks {
+   display: flex;
+   position: absolute;
+   top: 64px;
+   right: 64px;
+}
+
+.social_networks .link {
+   width: 64px;
+   height: 64px;
+   border-radius: 100%;
+   background-color: gray;
+   margin-left: 32px;
+   padding: 0;
+}
+
+.copyright {
+   display: none;
 }
