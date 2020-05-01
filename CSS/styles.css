@@ -152,6 +152,13 @@ li {
    /*rien pour l'instant*/
 }
 
+/*nth-child() est un type de selecteur css permettant decrire une fonction 
+parametrique afin de toucher un ou plusieur element*/
+.slides_preview .thumb:nth-child(1){
+   background-image: url('../ressources/images/man-hands.png');
+   background-size: cover;
+}
+
 .social_networks {
    display: flex;
    position: absolute;
@@ -163,10 +170,23 @@ li {
    width: 64px;
    height: 64px;
    border-radius: 100%;
-   background-color: gray;
+   background-color: white;
    margin-left: 32px;
    padding: 0;
 }
+
+.social_networks .link a{
+   display:flex;
+   justify-content: center;
+   align-items: center;
+   height: 100%;
+   width: 100%;
+}
+
+.social_networks .link a svg {}
+.social_networks .link a svg path{}
+
+
 
 .copyright {
    display: none;
