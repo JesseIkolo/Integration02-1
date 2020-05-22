@@ -173,6 +173,17 @@ parametrique afin de toucher un ou plusieur element*/
    background-color: white;
    margin-left: 32px;
    padding: 0;
+   transition: cubic-bezier(1,-0.63,0,1.58)  all 1000ms;
+   -moz-transition: cubic-bezier(1,-0.63,0,1.58)  all 1000ms;
+   -webkit-transition: cubic-bezier(1,-0.63,0,1.58)  all 1000ms;
+}
+
+.social_networks .link:hover * {
+   transition: cubic-bezier(1,-0.63,0,1.58)  all 1000ms;
+   -moz-transition: cubic-bezier(1,-0.63,0,1.58)  all 1000ms;
+   -webkit-transition: cubic-bezier(1,-0.63,0,1.58)  all 1000ms;
+}
+.social_networks .link {
 }
 
 .social_networks .link a{
@@ -181,11 +192,30 @@ parametrique afin de toucher un ou plusieur element*/
    align-items: center;
    height: 100%;
    width: 100%;
+   border-radius: 50%;
 }
 
-.social_networks .link a svg {}
-.social_networks .link a svg path{}
+.social_networks .link a {
 
+   /*  */
+}
+.social_networks .link a svg path{
+   /* fill permet d'ajouter une couleur dans l'espace graphique reservé à un svg */
+   fill: blue;
+}
+
+.social_networks .link:hover a.filled svg path,.social_networks .link:hover a.filled svg g{
+   fill : violet;
+}
+
+.social_networks .link:hover a.stroked svg path, .social_networks .link:hover a.stroked svg g{
+   stroke: violet;
+}
+
+.social_networks .link a:hover{
+   border : 5px solid red ;
+   border-radius: 50%;
+}
 
 
 .copyright {
